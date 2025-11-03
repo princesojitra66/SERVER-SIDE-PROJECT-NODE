@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Volunteer List</title>
+</head>
+<body style="font-family:Arial; margin:40px;">
+  <h1 style="text-align:center;">Volunteer Registration System</h1>
+  <div style="text-align:center; margin-bottom:20px;">
+    <a href="/add" style="padding:10px 15px; background-color:green; color:white; text-decoration:none;">Add New Volunteer</a>
+  </div>
+  <table border="1" cellpadding="10" cellspacing="0" style="width:100%; border-collapse:collapse;">
+    <tr style="background-color:#f2f2f2;">
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Skills</th>
+      <th>Actions</th>
+    </tr>
+    <% if (volunteers.length > 0) { %>
+      <% volunteers.forEach(volunteer => { %>
+        <tr>
+          <td><%= volunteer.name %></td>
+          <td><%= volunteer.email %></td>
+          <td><%= volunteer.phone %></td>
+          <td><%= volunteer.skills %></td>
+          <td>
+            <a href="/edit/<%= volunteer.id %>" style="color:blue; text-decoration:none;">Edit</a> |
+            <form action="/delete/<%= volunteer.id %>" method="POST" style="display:inline;">
+              <button type="submit" style="color:red; background:none; border:none; cursor:pointer;">Delete</button>
+            </form>
+          </td>
+        </tr>
+      <% }) %>
+    <% } else { %>
+      <tr><td colspan="5" style="text-align:center;">No volunteers registered.</td></tr>
+    <% } %>
+  </table>
+</body>
+</html>

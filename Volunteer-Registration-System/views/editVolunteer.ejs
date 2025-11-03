@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit Volunteer</title>
+</head>
+<body style="font-family:Arial; margin:40px;">
+  <h1>Edit Volunteer</h1>
+  <form action="/edit/<%= volunteer.id %>" method="POST" style="width:300px;">
+    <label>Name:</label><br>
+    <input type="text" name="name" value="<%= volunteer.name %>" required style="width:100%; margin-bottom:10px;"><br>
+    <label>Email:</label><br>
+    <input type="email" name="email" value="<%= volunteer.email %>" required style="width:100%; margin-bottom:10px;"><br>
+    <label>Phone:</label><br>
+    <input type="text" name="phone" value="<%= volunteer.phone %>" required style="width:100%; margin-bottom:10px;"><br>
+    <label>Skills:</label><br>
+    <input type="text" name="skills" value="<%= volunteer.skills %>" style="width:100%; margin-bottom:10px;"><br>
+    <button type="submit" style="padding:8px 12px; background-color:blue; color:white; border:none;">Update</button>
+  </form>
+  <br>
+  <a href="/" style="text-decoration:none; color:blue;">Back to List</a>
+</body>
+</html>
